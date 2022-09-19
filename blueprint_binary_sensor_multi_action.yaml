@@ -39,12 +39,12 @@ blueprint:
 trigger:
   - platform: state
     entity_id: !input switch_id
-    to: 'on'
+    to: 'off'
 action:
   - variables: # create variable cause we need those in templates
         switch_id: !input switch_id
         double_click_action: !input double_click_action
-  - wait_template: "{{ is_state(switch_id, 'off') }}"
+  - wait_template: "{{ is_state(switch_id, 'on') }}"
     timeout: !input delay
     continue_on_timeout: true
   - choose:
