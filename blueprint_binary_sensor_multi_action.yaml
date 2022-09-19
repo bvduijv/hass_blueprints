@@ -54,7 +54,7 @@ action:
       - choose:
           - conditions: "{{ double_click_action | length > 0 }}" #only wait for second click if a n action is defined for it to be more reactive
             sequence:
-              - wait_template: "{{ is_state(switch_id, 'on') }}" # second click?
+              - wait_template: "{{ is_state(switch_id, 'off') }}" # second click?
                 timeout: !input delay
                 continue_on_timeout: true
               - choose:
